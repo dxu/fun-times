@@ -6,3 +6,9 @@
 autopublish
 insecure
 preserve-inputs
+coffeescript
+underscore
+jquery
+handlebars
+accounts-facebook
+accounts-ui
