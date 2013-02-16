@@ -10,5 +10,5 @@ coffeescript
 underscore
 jquery
 handlebars
-accounts-facebook
+accounts-google
 accounts-ui

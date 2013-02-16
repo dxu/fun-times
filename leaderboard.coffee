@@ -1,13 +1,22 @@
 # Set up a collection to contain player information. On the server,
 # it is backed by a MongoDB collection named "players".
 Players = new Meteor.Collection("players")
+
 if Meteor.isClient
+
+  Accounts.ui.config(
+    requestPermissions: {
+      google: ['https://www.googleapis.com/auth/calendar']
+    }
+    requestOfflineToken:
+      google: true
+  )
+
   Template.leaderboard.players = ->
     Players.find {},
       sort:
         score: -1
         name: 1
-
 
   Template.leaderboard.selected_name = ->
     player = Players.findOne(Session.get("selected_player"))
@@ -20,7 +29,6 @@ if Meteor.isClient
     Players.update Session.get("selected_player"),
       $inc:
         score: 5
-
 
   Template.player.events click: ->
     Session.set "selected_player", @_id
