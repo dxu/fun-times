@@ -1,4 +1,0 @@
-try-meteor
-==========
-
-Meteor playground
